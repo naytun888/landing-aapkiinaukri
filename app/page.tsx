@@ -30,9 +30,8 @@ export default function Page() {
             <a href="#benefits">Benefits</a>
             <a href="#contact">Contact</a>
           </div>
-          <CtaLink className="cta" href={DEST}>
-            Get Started
-          </CtaLink>
+          {/* CtaLink in this repo doesn't take href — it already links to hirepr0.com */}
+          <CtaLink className="cta">Get Started</CtaLink>
         </nav>
       </header>
 
@@ -49,16 +48,12 @@ export default function Page() {
           </p>
 
           <div className="ctaRow">
-            <CtaLink href={DEST} className="grad">
-              Claim Your ₹500 Bonus
-            </CtaLink>
-            <CtaLink href={DEST} variant="outline">
-              Apply in 2 Minutes
-            </CtaLink>
+            <CtaLink className="grad">Claim Your ₹500 Bonus</CtaLink>
+            <CtaLink className="outline">Apply in 2 Minutes</CtaLink>
           </div>
 
           <p className="subtle">
-            UPI / Bank transfer • Work 1–4 hrs/day.
+            UPI / Bank transfer • Work 1–4 hrs/day • Policy-friendly application
           </p>
 
           {/* Illustration 1 */}
@@ -68,13 +63,11 @@ export default function Page() {
               alt="People finding roles that fit their interests"
               loading="eager"
             />
-            <CtaLink href={DEST} className="grad smallCta">
-              Apply Now
-            </CtaLink>
+            <CtaLink className="grad smallCta">Apply Now</CtaLink>
           </div>
         </section>
 
-        {/* Banner Illustration 2 (same sizing as Illustration 1) */}
+        {/* Illustration 2 (same sizing rules as Illustration 1) */}
         <section className="container">
           <div className="card imgWrap">
             <img
@@ -133,16 +126,12 @@ export default function Page() {
             <div className="card">
               <h3>₹8,342</h3>
               <p>Rohit earned ₹8,342 in 3 weeks. You can too.</p>
-              <CtaLink href={DEST} className="grad smallCta">
-                Start Earning
-              </CtaLink>
+              <CtaLink className="grad smallCta">Start Earning</CtaLink>
             </div>
             <div className="card">
               <h3>₹12,210</h3>
               <p>Priya made ₹12,210 in a month while studying.</p>
-              <CtaLink href={DEST} className="grad smallCta">
-                Apply Now
-              </CtaLink>
+              <CtaLink className="grad smallCta">Apply Now</CtaLink>
             </div>
           </div>
         </section>
@@ -174,9 +163,7 @@ export default function Page() {
               We avoid misleading claims or unrealistic promises. Earnings depend on your
               time, effort, and task availability.
             </p>
-            <CtaLink href={DEST} className="grad">
-              View Openings
-            </CtaLink>
+            <CtaLink className="grad">View Openings</CtaLink>
           </div>
         </section>
 
@@ -185,9 +172,9 @@ export default function Page() {
           <h2>Ready to Start?</h2>
           <p>Tap any button to apply. It takes less than 2 minutes.</p>
           <div className="ctaRow">
-            <CtaLink href={DEST} className="grad">Apply Free</CtaLink>
-            <CtaLink href={DEST} variant="outline">Get Help</CtaLink>
-            <CtaLink href={DEST} className="grad">Start Today</CtaLink>
+            <CtaLink className="grad">Apply Free</CtaLink>
+            <CtaLink className="outline">Get Help</CtaLink>
+            <CtaLink className="grad">Start Today</CtaLink>
           </div>
 
           <hr />
@@ -211,9 +198,11 @@ export default function Page() {
           --glass: rgba(255, 255, 255, 0.65);
           --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
           --radius: 22px;
-          --edge: max(16px, env(safe-area-inset-left));
         }
-        html, body { overflow-x: hidden; }
+        html,
+        body {
+          overflow-x: hidden;
+        }
         body {
           margin: 0;
           background: #f6f8f9;
@@ -241,20 +230,36 @@ export default function Page() {
         .brand {
           font-weight: 800;
           font-size: clamp(20px, 3.2vw, 28px);
-          letter-spacing: 0.2px;
         }
-        .brand .in { color: var(--green); }
-        .menu { display: flex; gap: 18px; flex-wrap: wrap; }
-        .menu a { color: #374151; text-decoration: none; font-weight: 600; }
-        .cta { justify-self: end; }
+        .brand .in {
+          color: var(--green);
+        }
+        .menu {
+          display: flex;
+          gap: 18px;
+          flex-wrap: wrap;
+        }
+        .menu a {
+          color: #374151;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        .cta {
+          justify-self: end;
+        }
 
         .hero h1 {
           font-size: clamp(28px, 6.2vw, 46px);
           line-height: 1.1;
           margin: 14px 0 10px;
         }
-        .accent { color: var(--green); }
-        .lede { font-size: clamp(16px, 3.6vw, 20px); color: #4b5563; }
+        .accent {
+          color: var(--green);
+        }
+        .lede {
+          font-size: clamp(16px, 3.6vw, 20px);
+          color: #4b5563;
+        }
         .pill {
           display: inline-block;
           padding: 10px 14px;
@@ -263,7 +268,12 @@ export default function Page() {
           box-shadow: var(--shadow);
           margin-top: 6px;
         }
-        .ctaRow { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0 8px; }
+        .ctaRow {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          margin: 16px 0 8px;
+        }
 
         .card {
           background: var(--glass);
@@ -284,21 +294,27 @@ export default function Page() {
         .imgWrap img {
           width: 100%;
           height: auto;
-          max-width: 420px;   /* phone default */
+          max-width: 420px;
           border-radius: 18px;
         }
         @media (min-width: 480px) {
-          .imgWrap img { max-width: 520px; }
+          .imgWrap img {
+            max-width: 520px;
+          }
         }
         @media (min-width: 768px) {
-          .imgWrap img { max-width: 640px; }
+          .imgWrap img {
+            max-width: 640px;
+          }
         }
 
         h2 {
           font-size: clamp(22px, 4.6vw, 30px);
           margin: 14px 0 12px;
         }
-        h3 { margin: 8px 0; }
+        h3 {
+          margin: 8px 0;
+        }
 
         .grid3 {
           display: grid;
@@ -311,29 +327,63 @@ export default function Page() {
           grid-template-columns: 1fr;
         }
         @media (min-width: 768px) {
-          .grid3 { grid-template-columns: repeat(3, 1fr); }
-          .grid2 { grid-template-columns: repeat(2, 1fr); }
+          .grid3 {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .grid2 {
+            grid-template-columns: repeat(2, 1fr);
+          }
         }
 
         .steps {
-          list-style: none; padding: 0; margin: 0; display: grid; gap: 14px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          gap: 14px;
         }
         .badge {
-          display: inline-grid; place-items: center;
-          width: 40px; height: 40px; border-radius: 999px;
-          color: white; font-weight: 700; margin-bottom: 8px;
+          display: inline-grid;
+          place-items: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 999px;
+          color: white;
+          font-weight: 700;
+          margin-bottom: 8px;
         }
-        .one { background: #fb923c; }
-        .two { background: #22c55e; }
-        .three { background: #f472b6; }
+        .one {
+          background: #fb923c;
+        }
+        .two {
+          background: #22c55e;
+        }
+        .three {
+          background: #f472b6;
+        }
 
-        .smallCta { align-self: center; justify-self: center; }
+        .smallCta {
+          align-self: center;
+          justify-self: center;
+        }
 
-        .subtle { color: #6b7280; margin-top: 6px; }
+        .subtle {
+          color: #6b7280;
+          margin-top: 6px;
+        }
 
-        .footlinks { display: flex; gap: 16px; flex-wrap: wrap; }
-        .footlinks a { color: #374151; text-decoration: none; }
-        .copyright { color: #6b7280; }
+        .footlinks {
+          display: flex;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .footlinks a {
+          color: #374151;
+          text-decoration: none;
+        }
+        .copyright {
+          color: #6b7280;
+        }
 
         /* Floating (fixed) glass CTAs on the RIGHT side */
         .floatCta {
@@ -349,8 +399,24 @@ export default function Page() {
           box-shadow: var(--shadow);
           backdrop-filter: blur(16px) saturate(140%);
         }
-        .floatTop { top: max(12px, calc(env(safe-area-inset-top) + 12px)); }
-        .floatBottom { bottom: max(16px, env(safe-area-inset-bottom)); }
+        .floatTop {
+          top: max(12px, calc(env(safe-area-inset-top) + 12px));
+        }
+        .floatBottom {
+          bottom: max(16px, env(safe-area-inset-bottom));
+        }
+
+        /* Helper styles for CtaLink variants */
+        .grad {
+          background: linear-gradient(135deg, #ff9365, #76d18c) !important;
+          color: white !important;
+          border: none !important;
+        }
+        .outline {
+          background: transparent !important;
+          border: 2px solid var(--green) !important;
+          color: var(--green) !important;
+        }
       `}</style>
     </>
   );
