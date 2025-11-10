@@ -2,11 +2,7 @@
 
 import { PropsWithChildren, MouseEvent } from "react";
 
-type Props = PropsWithChildren<{
-  className?: string;
-  eventName?: string;            // default "CTA_Click"
-  ariaLabel?: string;
-}>;
+type Props = PropsWithChildren<{ className?: string; eventName?: string; ariaLabel?: string }>;
 
 function buildDestWithParams(dest: string) {
   const url = new URL(dest);
@@ -16,23 +12,12 @@ function buildDestWithParams(dest: string) {
   return url.toString();
 }
 
-export default function CtaLink({
-  className,
-  children,
-  eventName = "CTA_Click",
-  ariaLabel
-}: Props) {
+export default function CtaLink({ className, children, eventName = "CTA_Click", ariaLabel }: Props) {
   const DEST = process.env.NEXT_PUBLIC_DEST_URL || "https://www.hirepr0.com/";
 
   const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    try {
-      // @ts-ignore
-      window.fbq?.("trackCustom", eventName, {
-        source: "aapkiinaukri",
-        path: location.pathname
-      });
-    } catch {}
+    try { (window as any).fbq?.("trackCustom", eventName, { source: "aapkiinaukri", path: location.pathname }); } catch {}
     const target = buildDestWithParams(DEST);
     setTimeout(() => (location.href = target), 350);
   };
