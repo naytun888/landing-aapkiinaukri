@@ -5,32 +5,45 @@ import CtaLink from "../components/CtaLink";
 export default function Page() {
   return (
     <>
-      {/* Top tricolor line */}
+      {/* Tricolor line */}
       <div className="flagbar" aria-hidden="true" />
 
-      {/* Navigation */}
+      {/* Fixed CTA (top-left) */}
+      <CtaLink className="cta fab-top-left" ariaLabel="Get Started">
+        Get Started
+      </CtaLink>
+
+      {/* Nav */}
       <header className="container">
-        <nav className="nav" aria-label="Main Navigation">
+        <nav className="nav" aria-label="Main">
           <div className="brand">
             Aapki<span style={{ color: "var(--green)" }}>In</span>Naukri
           </div>
+
+          {/* Hide on small screens, show on tablets/desktop */}
           <div className="menu">
             <a href="#how">How it Works</a>
             <a href="#earnings">Earnings</a>
             <a href="#benefits">Benefits</a>
             <a href="#contact">Contact</a>
           </div>
-          <CtaLink className="cta" ariaLabel="Get Started">
-            Get Started
-          </CtaLink>
+
+          {/* Desktop-only secondary CTA (mobile uses fab button) */}
+          <div className="menu-cta">
+            <CtaLink className="cta" ariaLabel="Get Started">
+              Get Started
+            </CtaLink>
+          </div>
         </nav>
       </header>
 
       <main>
-        {/* HERO SECTION */}
+        {/* HERO */}
         <section className="container hero" id="hero">
           <div>
-            <div className="pill">Daily Updated — New earning opportunities</div>
+            <div className="pill">
+              Daily Updated — New earning opportunities
+            </div>
             <h1>
               Earn Money Online —{" "}
               <span style={{ color: "var(--green)" }}>No Experience Needed</span>
@@ -46,11 +59,11 @@ export default function Page() {
             </div>
 
             <p className="muted" style={{ marginTop: 10 }}>
-              UPI / Bank transfer • Work 1–4 hrs/day • Policy-friendly application
+              UPI / Bank transfer • Work 1–4 hrs/day.
             </p>
           </div>
 
-          {/* HERO IMAGES (compact + mobile responsive) */}
+          {/* HERO images (compact) */}
           <div className="hero-visual">
             <div className="card imgWrap img-sm">
               <img
@@ -59,28 +72,18 @@ export default function Page() {
                 loading="eager"
               />
             </div>
-            <div className="card imgWrap img-xs" style={{ padding: "6px" }}>
-              <img
-                src="https://static.naukimg.com/s/0/0/i/Events/eventsSwiperLeft-ot.png"
-                alt="Event task illustration"
-                loading="lazy"
-              />
-            </div>
-            <div className="caption">
-              Find tasks that match your time and interests
-            </div>
           </div>
         </section>
 
-        {/* VALUE / SOCIAL PROOF */}
+        {/* VALUE + PROOF */}
         <section id="earnings" className="section" style={{ background: "#fafafa" }}>
           <div className="container grid-2">
             <div className="card">
               <h2 className="title">Real Results, Real People</h2>
               <p className="muted">
-                People across India use part-time hours to earn extra income. Results
-                vary by time spent and task availability. You’re in control of when
-                and how much you work.
+                People across India use part-time hours to earn extra income.
+                Results vary by time spent and task availability. You’re in
+                control of when and how much you work.
               </p>
               <div className="cta-row" style={{ marginTop: 10 }}>
                 <CtaLink className="cta">Start Earning</CtaLink>
@@ -100,6 +103,17 @@ export default function Page() {
                 <CtaLink className="cta">Apply Free</CtaLink>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* IMAGE #2 ABOVE “WHO IS THIS FOR?” */}
+        <section className="container" aria-hidden="false">
+          <div className="card imgWrap img-banner">
+            <img
+              src="https://static.naukimg.com/s/0/0/i/Events/eventsSwiperLeft-ot.png"
+              alt="Events and tasks illustration"
+              loading="lazy"
+            />
           </div>
         </section>
 
@@ -133,38 +147,8 @@ export default function Page() {
           </div>
         </section>
 
-        {/* WHAT YOU'LL DO */}
-        <section className="section" style={{ background: "#fafafa" }}>
-          <div className="container">
-            <h2 className="title">What You’ll Do</h2>
-            <div className="grid-3">
-              <div className="card">
-                <h4>Try Apps & Give Feedback</h4>
-                <p className="muted">
-                  Install, explore, and share quick feedback from your phone.
-                </p>
-              </div>
-              <div className="card">
-                <h4>Mini Data Tasks</h4>
-                <p className="muted">
-                  Correct labels, check info quality, or categorize items.
-                </p>
-              </div>
-              <div className="card">
-                <h4>Short Surveys</h4>
-                <p className="muted">
-                  Answer brief questions to help improve products and services.
-                </p>
-              </div>
-            </div>
-            <div style={{ marginTop: 18 }}>
-              <CtaLink className="cta">See Available Tasks</CtaLink>
-            </div>
-          </div>
-        </section>
-
         {/* HOW IT WORKS */}
-        <section id="how" className="section">
+        <section id="how" className="section" style={{ background: "#fafafa" }}>
           <div className="container">
             <h2 className="title">How It Works</h2>
             <div className="steps">
@@ -177,8 +161,7 @@ export default function Page() {
                 <div
                   className="badge"
                   style={{
-                    background:
-                      "linear-gradient(180deg,var(--green),#0b7f2b)",
+                    background: "linear-gradient(180deg,var(--green),#0b7f2b)",
                   }}
                 >
                   2
@@ -190,8 +173,7 @@ export default function Page() {
                 <div
                   className="badge"
                   style={{
-                    background:
-                      "linear-gradient(180deg,#ff7aa2,#ff5e7a)",
+                    background: "linear-gradient(180deg,#ff7aa2,#ff5e7a)",
                   }}
                 >
                   3
@@ -206,7 +188,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TRUST & SAFETY */}
+        {/* TRUST */}
         <section className="section" style={{ background: "#fafafa" }}>
           <div className="container grid-2">
             <div className="card">
@@ -243,7 +225,7 @@ export default function Page() {
         </section>
       </main>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <footer className="footer">
         <div className="container" style={{ textAlign: "center" }}>
           <div className="footlinks">
@@ -258,10 +240,89 @@ export default function Page() {
         </div>
       </footer>
 
-      {/* Floating apply button */}
-      <CtaLink className="cta sticky" ariaLabel="Apply Now">
+      {/* Fixed CTA (bottom-left) */}
+      <CtaLink className="cta fab-bottom-left" ariaLabel="Apply Now">
         Apply Now
       </CtaLink>
+
+      {/* Mobile/overflow fixes */}
+      <style jsx global>{`
+        html,
+        body {
+          overflow-x: hidden;
+        }
+
+        /* Wider safe padding on phones */
+        .container {
+          padding-left: max(16px, env(safe-area-inset-left));
+          padding-right: max(16px, env(safe-area-inset-right));
+        }
+
+        /* Make hero breathe on mobile */
+        .hero > div:first-child {
+          padding-right: 6px;
+        }
+
+        /* Brand bigger on mobile */
+        @media (max-width: 768px) {
+          .brand {
+            font-size: 24px;
+            font-weight: 800;
+          }
+          /* hide menu + right CTA on phones */
+          .menu,
+          .menu-cta {
+            display: none !important;
+          }
+          /* stack hero */
+          .hero {
+            grid-template-columns: 1fr !important;
+          }
+          .cta-row {
+            flex-wrap: wrap;
+            gap: 12px;
+          }
+        }
+
+        /* Responsive images */
+        .imgWrap img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+        .img-sm {
+          max-width: 360px;
+          margin: 0 auto;
+        }
+        .img-banner {
+          max-width: 740px;
+          margin: 12px auto 0;
+        }
+
+        /* Fixed buttons (safe-area aware) */
+        .fab-top-left {
+          position: fixed;
+          top: calc(env(safe-area-inset-top, 0px) + 10px);
+          left: calc(env(safe-area-inset-left, 0px) + 10px);
+          z-index: 60;
+          opacity: 0.96;
+        }
+        .fab-bottom-left {
+          position: fixed;
+          bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+          left: calc(env(safe-area-inset-left, 0px) + 14px);
+          z-index: 60;
+          opacity: 0.98;
+        }
+
+        /* Prevent any accidental width overflow from cards/images */
+        .card,
+        .imgWrap,
+        .section,
+        .hero {
+          max-width: 100%;
+        }
+      `}</style>
     </>
   );
 }
