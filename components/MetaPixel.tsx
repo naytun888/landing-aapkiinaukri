@@ -14,7 +14,7 @@ export default function MetaPixel() {
   const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
   useEffect(() => {
-    if (!PIXEL_ID) return;
+    if (!PIXEL_ID) return;                  // ok if you don't have a pixel yet
 
     if (typeof window !== "undefined" && window.__fbqInitialized) return;
 
