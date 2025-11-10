@@ -1,323 +1,345 @@
 "use client";
 
-import Image from "next/image";
-import CtaLink from "@/components/CtaLink";
-
-const DEST = "https://hirepr0.com";
-
-// Shared sizes so both illustrations match exactly
-const imgWrap =
-  "mx-auto w-full max-w-[560px] aspect-[4/3] rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-xl overflow-hidden backdrop-blur-sm";
-const imgEl = "w-full h-full object-contain";
+import CtaLink from "../components/CtaLink";
 
 export default function Page() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[radial-gradient(1200px_600px_at_50%_-200px,rgba(255,145,0,0.10),transparent_60%),radial-gradient(1200px_600px_at_50%_100%,rgba(0,150,80,0.10),transparent_60%)]">
-      {/* Floating CTAs (fixed) */}
-      <div
-        className="fixed z-50"
-        style={{
-          right: "max(12px, env(safe-area-inset-right))",
-          top: "max(12px, env(safe-area-inset-top))",
-        }}
-      >
-        <CtaLink className="glass px-4 py-2 text-sm font-semibold rounded-2xl shadow-lg">
-          Get Started
-        </CtaLink>
-      </div>
+    <>
+      {/* Tricolor line */}
+      <div className="flagbar" aria-hidden="true" />
 
-      <div
-        className="fixed z-50"
-        style={{
-          right: "max(12px, env(safe-area-inset-right))",
-          bottom: "max(12px, env(safe-area-inset-bottom))",
-        }}
-      >
-        <CtaLink className="glass px-5 py-3 text-base font-semibold rounded-3xl shadow-xl">
-          Apply Now
-        </CtaLink>
-      </div>
+      {/* Fixed CTA (top-right) */}
+      <CtaLink className="cta fab-top-right" ariaLabel="Get Started">
+        Get Started
+      </CtaLink>
 
-      {/* Header (logo only) */}
-      <header className="sticky top-0 z-20 bg-white/60 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 border-b border-black/5">
-        <div className="mx-auto max-w-screen-md px-4 py-3 sm:px-6">
-          <div className="flex items-center gap-3">
-            <div className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Aapki<span className="text-green-600">In</span>Naukri
-            </div>
+      {/* Nav */}
+      <header className="container">
+        <nav className="nav" aria-label="Main">
+          <div className="brand">
+            Aapki<span style={{ color: "var(--green)" }}>In</span>Naukri
           </div>
-        </div>
+
+          {/* Hide on small screens, show on tablets/desktop */}
+          <div className="menu">
+            <a href="#how">How it Works</a>
+            <a href="#earnings">Earnings</a>
+            <a href="#benefits">Benefits</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          {/* Desktop-only secondary CTA (mobile uses fab button) */}
+          <div className="menu-cta">
+            <CtaLink className="cta" ariaLabel="Get Started">
+              Get Started
+            </CtaLink>
+          </div>
+        </nav>
       </header>
 
-      <main className="mx-auto max-w-screen-md px-4 sm:px-6">
-        {/* Pill */}
-        <div className="mt-6 sm:mt-8 mb-4 sm:mb-6">
-          <div className="inline-flex rounded-full border border-orange-300/50 bg-white/70 px-4 py-2 text-[13px] sm:text-sm text-orange-700 shadow-sm backdrop-blur">
-            Daily Updated — New earning opportunities
-          </div>
-        </div>
-
+      <main>
         {/* HERO */}
-        <section className="relative grid gap-6 sm:gap-8">
+        <section className="container hero" id="hero">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+            <div className="pill">
+              Daily Updated — New earning opportunities
+            </div>
+            <h1>
               Earn Money Online —{" "}
-              <span className="text-green-700">No Experience Needed</span>
+              <span style={{ color: "var(--green)" }}>No Experience Needed</span>
             </h1>
-            <p className="mt-3 sm:mt-4 text-neutral-700 text-base sm:text-lg">
+            <p className="sub">
               Use your smartphone to complete simple tasks. Flexible timing,
               daily payouts, and start within 24 hours.
             </p>
 
-            <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-3">
-              <CtaLink className="glass px-5 py-3 rounded-3xl text-[15px] font-semibold shadow-md">
-                Claim Your ₹500 Bonus
-              </CtaLink>
-              <CtaLink className="btn-outline px-5 py-3 rounded-3xl text-[15px] font-semibold">
-                Apply in 2 Minutes
-              </CtaLink>
+            <div className="cta-row">
+              <CtaLink className="cta">Claim Your ₹500 Bonus</CtaLink>
+              <CtaLink className="cta ghost">Apply in 2 Minutes</CtaLink>
             </div>
 
-            <p className="mt-3 sm:mt-4 text-neutral-600 text-sm sm:text-[15px]">
-              UPI / Bank transfer • Work 1–4 hrs/day • Policy-friendly
-              application
+            <p className="muted" style={{ marginTop: 10 }}>
+              UPI / Bank transfer • Work 1–4 hrs/day • Policy-friendly application
             </p>
           </div>
 
-          {/* Illustration #1 */}
-          <div className={imgWrap}>
-            <Image
-              src="https://static.naukimg.com/s/0/0/i/role-collection-ot.png"
-              alt="Illustration"
-              width={1120}
-              height={840}
-              className={imgEl}
-              priority
-            />
+          {/* HERO images (compact) */}
+          <div className="hero-visual">
+            <div className="card imgWrap img-sm">
+              <img
+                src="https://static.naukimg.com/s/0/0/i/role-collection-ot.png"
+                alt="Job role illustration"
+                loading="eager"
+              />
+            </div>
           </div>
+        </section>
 
-          {/* Real Results directly under Image #1 */}
-          <section aria-labelledby="results" className="grid gap-4 sm:gap-6">
-            <h2 id="results" className="text-2xl sm:text-3xl font-bold">
-              Real Results, Real People
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl bg-white/70 ring-1 ring-black/5 p-5 shadow-md backdrop-blur">
-                <div className="text-2xl font-extrabold text-green-700 mb-1">
-                  ₹8,342
-                </div>
-                <p className="text-neutral-700 text-sm">
-                  Rohit earned ₹8,342 in 3 weeks. The flexible schedule helped
-                  him work between classes.
-                </p>
-              </div>
-              <div className="rounded-3xl bg-white/70 ring-1 ring-black/5 p-5 shadow-md backdrop-blur">
-                <div className="text-2xl font-extrabold text-green-700 mb-1">
-                  ₹12,210
-                </div>
-                <p className="text-neutral-700 text-sm">
-                  Priya earned ₹12,210 in a month while managing home
-                  responsibilities.
-                </p>
+        {/* VALUE + PROOF */}
+        <section id="earnings" className="section" style={{ background: "#fafafa" }}>
+          <div className="container grid-2">
+            <div className="card">
+              <h2 className="title">Real Results, Real People</h2>
+              <p className="muted">
+                People across India use part-time hours to earn extra income.
+                Results vary by time spent and task availability. You’re in
+                control of when and how much you work.
+              </p>
+              <div className="cta-row" style={{ marginTop: 10 }}>
+                <CtaLink className="cta">Start Earning</CtaLink>
+                <CtaLink className="cta ghost">View Openings</CtaLink>
               </div>
             </div>
-          </section>
 
-          {/* Illustration #2 (same size rules), placed ABOVE “Who Is This For?” */}
-          <div className={imgWrap}>
-            <Image
+            <div className="card">
+              <h2 className="title">Why Choose Us?</h2>
+              <ul className="muted">
+                <li>Simple tasks — app testing, data entry, short surveys</li>
+                <li>Flexible schedule — mornings, evenings, or weekends</li>
+                <li>Fast payouts — UPI or bank transfer</li>
+                <li>Free to apply — no fees, no hidden charges</li>
+              </ul>
+              <div style={{ marginTop: 12 }}>
+                <CtaLink className="cta">Apply Free</CtaLink>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* IMAGE #2 ABOVE “WHO IS THIS FOR?” */}
+        <section className="container" aria-hidden="false">
+          <div className="card imgWrap img-banner">
+            <img
               src="https://static.naukimg.com/s/0/0/i/Events/eventsSwiperLeft-ot.png"
-              alt="Illustration"
-              width={1120}
-              height={840}
-              className={imgEl}
+              alt="Events and tasks illustration"
+              loading="lazy"
             />
           </div>
+        </section>
 
-          {/* Who Is This For? */}
-          <section className="grid gap-4 sm:gap-6">
-            <h2 className="text-2xl sm:text-3xl font-bold">Who Is This For?</h2>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                {
-                  t: "Students",
-                  d: "Work between classes. Learn digital skills & earn.",
-                },
-                {
-                  t: "Homemakers",
-                  d: "Use free hours to complete simple mobile tasks.",
-                },
-                {
-                  t: "Professionals",
-                  d: "Add a second income stream in 1–4 hrs/day.",
-                },
-              ].map((x) => (
+        {/* WHO IS THIS FOR */}
+        <section className="section" id="benefits">
+          <div className="container">
+            <h2 className="title">Who Is This For?</h2>
+            <div className="grid-3">
+              <div className="card">
+                <h3 style={{ color: "var(--green)" }}>Students</h3>
+                <p className="muted">
+                  Earn between classes with short, phone-friendly tasks.
+                </p>
+              </div>
+              <div className="card">
+                <h3 style={{ color: "var(--saffron)" }}>Homemakers</h3>
+                <p className="muted">
+                  Work a few hours a day while managing your schedule.
+                </p>
+              </div>
+              <div className="card">
+                <h3 style={{ color: "#1565c0" }}>Job Seekers</h3>
+                <p className="muted">
+                  Get extra income while you look for a full-time role.
+                </p>
+              </div>
+            </div>
+            <div style={{ marginTop: 18 }}>
+              <CtaLink className="cta">Check Your Eligibility</CtaLink>
+            </div>
+          </div>
+        </section>
+
+        {/* HOW IT WORKS */}
+        <section id="how" className="section" style={{ background: "#fafafa" }}>
+          <div className="container">
+            <h2 className="title">How It Works</h2>
+            <div className="steps">
+              <div className="card step">
+                <div className="badge">1</div>
+                <h3>Apply Free</h3>
+                <p className="muted">2-minute form with basic details. No fees.</p>
+              </div>
+              <div className="card step">
                 <div
-                  key={x.t}
-                  className="rounded-3xl bg-white/70 ring-1 ring-black/5 p-5 shadow-md backdrop-blur"
+                  className="badge"
+                  style={{
+                    background: "linear-gradient(180deg,var(--green),#0b7f2b)",
+                  }}
                 >
-                  <div className="font-semibold mb-1">{x.t}</div>
-                  <div className="text-neutral-700 text-sm">{x.d}</div>
+                  2
                 </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Why Choose Us */}
-          <section className="grid gap-4 sm:gap-6">
-            <h2 className="text-2xl sm:text-3xl font-bold">Why Choose Us?</h2>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                {
-                  t: "Simple Tasks",
-                  d: "App testing, surveys, short reviews—no experience needed.",
-                },
-                {
-                  t: "Flexible Timing",
-                  d: "Work anytime—early morning, lunch break, late night.",
-                },
-                {
-                  t: "Daily Payouts",
-                  d: "Direct to UPI or bank. No minimum withdrawal.",
-                },
-              ].map((x) => (
+                <h3>Choose Tasks</h3>
+                <p className="muted">Pick tasks that fit your time and interests.</p>
+              </div>
+              <div className="card step">
                 <div
-                  key={x.t}
-                  className="rounded-3xl bg-white/70 ring-1 ring-black/5 p-5 shadow-md backdrop-blur"
+                  className="badge"
+                  style={{
+                    background: "linear-gradient(180deg,#ff7aa2,#ff5e7a)",
+                  }}
                 >
-                  <div className="font-semibold mb-1">{x.t}</div>
-                  <div className="text-neutral-700 text-sm">{x.d}</div>
+                  3
                 </div>
-              ))}
+                <h3>Get Paid</h3>
+                <p className="muted">Receive payouts via UPI or bank transfer.</p>
+              </div>
             </div>
-          </section>
+            <div style={{ textAlign: "center", marginTop: 16 }}>
+              <CtaLink className="cta">Apply Now</CtaLink>
+            </div>
+          </div>
+        </section>
 
-          {/* How It Works */}
-          <section className="grid gap-4 sm:gap-6">
-            <h2 className="text-2xl sm:text-3xl font-bold">How It Works</h2>
-            <div className="grid gap-4">
-              {[
-                {
-                  n: "1",
-                  t: "Apply Free",
-                  d: "2-minute form with basic details. No fees.",
-                },
-                {
-                  n: "2",
-                  t: "Choose Tasks",
-                  d: "Pick tasks that fit your time and interests.",
-                },
-                {
-                  n: "3",
-                  t: "Get Paid",
-                  d: "Payouts via UPI or bank—usually within 24 hours.",
-                },
-              ].map((x) => (
-                <div
-                  key={x.n}
-                  className="rounded-3xl bg-white/70 ring-1 ring-black/5 p-5 shadow-md backdrop-blur flex items-start gap-4"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-green-600 text-white font-bold">
-                    {x.n}
-                  </div>
-                  <div>
-                    <div className="font-semibold mb-1">{x.t}</div>
-                    <div className="text-neutral-700 text-sm">{x.d}</div>
-                  </div>
-                </div>
-              ))}
+        {/* TRUST */}
+        <section className="section" style={{ background: "#fafafa" }}>
+          <div className="container grid-2">
+            <div className="card">
+              <h2 className="title">Trust & Safety</h2>
+              <ul className="muted">
+                <li>Clear, upfront task instructions</li>
+                <li>No signup fees or deposits</li>
+                <li>Data used only to process your application</li>
+                <li>Support team available for questions</li>
+              </ul>
             </div>
-          </section>
+            <div className="card">
+              <h2 className="title">Ad-Policy Friendly Content</h2>
+              <p className="muted">
+                We avoid misleading claims or unrealistic promises. Earnings
+                depend on your time, effort, and task availability.
+              </p>
+              <CtaLink className="cta">View Openings</CtaLink>
+            </div>
+          </div>
+        </section>
 
-          {/* Ad Policy Friendly */}
-          <section className="grid gap-3">
-            <h2 className="text-2xl sm:text-3xl font-bold">
-              Ad Policy Friendly Content
-            </h2>
-            <p className="text-neutral-700">
-              We avoid misleading claims or unrealistic promises. Earnings
-              depend on your time, effort, and task availability.
-            </p>
-            <div>
-              <CtaLink className="btn-outline px-4 py-2 rounded-2xl text-[15px] font-semibold">
-                View Openings
-              </CtaLink>
+        {/* CONTACT */}
+        <section id="contact" className="section">
+          <div className="container">
+            <h2 className="title">Ready to Start?</h2>
+            <p className="muted">Tap any button to apply. It takes less than 2 minutes.</p>
+            <div className="cta-row" style={{ marginTop: 10 }}>
+              <CtaLink className="cta">Apply Free</CtaLink>
+              <CtaLink className="cta ghost">Get Help</CtaLink>
+              <CtaLink className="cta">Start Today</CtaLink>
             </div>
-          </section>
-
-          {/* Ready to Start */}
-          <section className="mt-2 grid gap-4">
-            <h2 className="text-2xl sm:text-3xl font-bold">Ready to Start?</h2>
-            <p className="text-neutral-700">
-              Tap any button to apply. It takes less than 2 minutes.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <CtaLink className="glass px-4 py-2 rounded-2xl text-[15px] font-semibold">
-                Apply Free
-              </CtaLink>
-              <CtaLink className="btn-outline px-4 py-2 rounded-2xl text-[15px] font-semibold">
-                Get Help
-              </CtaLink>
-              <CtaLink className="glass px-4 py-2 rounded-2xl text-[15px] font-semibold">
-                Start Today
-              </CtaLink>
-            </div>
-          </section>
-
-          <footer className="py-8 text-sm text-neutral-600">
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
-              <a href={DEST} target="_blank" className="hover:underline">
-                Privacy
-              </a>
-              <a href={DEST} target="_blank" className="hover:underline">
-                Terms
-              </a>
-              <a href={DEST} target="_blank" className="hover:underline">
-                Contact
-              </a>
-              <a href={DEST} target="_blank" className="hover:underline">
-                FAQ
-              </a>
-            </div>
-            <p className="mt-3">© 2025 AapkiInNaukri. All rights reserved.</p>
-          </footer>
+          </div>
         </section>
       </main>
 
-      {/* local styles used by CtaLink */}
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container" style={{ textAlign: "center" }}>
+          <div className="footlinks">
+            <CtaLink>Privacy</CtaLink>
+            <CtaLink>Terms</CtaLink>
+            <CtaLink>Contact</CtaLink>
+            <CtaLink>FAQ</CtaLink>
+          </div>
+          <div className="muted" style={{ marginTop: 10 }}>
+            © {new Date().getFullYear()} AapkiInNaukri. All rights reserved.
+          </div>
+        </div>
+      </footer>
+
+      {/* Fixed CTA (bottom-right) */}
+      <CtaLink className="cta fab-bottom-right" ariaLabel="Apply Now">
+        Apply Now
+      </CtaLink>
+
+      {/* Mobile/overflow fixes */}
       <style jsx global>{`
-        .glass {
-          background: radial-gradient(
-              120% 120% at 0% 0%,
-              rgba(255, 145, 0, 0.2),
-              transparent 60%
-            ),
-            radial-gradient(
-              120% 120% at 100% 100%,
-              rgba(0, 150, 80, 0.22),
-              transparent 60%
-            ),
-            linear-gradient(90deg, #ff9f67 0%, #ff89a9 40%, #5fd38b 100%);
-          background-blend-mode: screen, screen, normal;
-          color: #fff;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-          border: 1px solid rgba(255, 255, 255, 0.35);
-          -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-        }
-        .btn-outline {
-          color: #0f6b3f;
-          border: 1.5px solid rgba(16, 120, 70, 0.35);
-          background: rgba(255, 255, 255, 0.6);
-          -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-        }
-        /* ensure no accidental horizontal scroll */
         html,
         body {
           overflow-x: hidden;
         }
+
+        /* Wider safe padding on phones */
+        .container {
+          padding-left: max(16px, env(safe-area-inset-left));
+          padding-right: max(16px, env(safe-area-inset-right));
+        }
+
+        /* Make hero breathe on mobile */
+        .hero > div:first-child {
+          padding-right: 6px;
+        }
+
+        /* Brand bigger on mobile */
+        @media (max-width: 768px) {
+          .brand {
+            font-size: 24px;
+            font-weight: 800;
+          }
+          /* hide menu + right CTA on phones */
+          .menu,
+          .menu-cta {
+            display: none !important;
+          }
+          /* stack hero */
+          .hero {
+            grid-template-columns: 1fr !important;
+          }
+          .cta-row {
+            flex-wrap: wrap;
+            gap: 12px;
+          }
+        }
+
+        /* Responsive images */
+        .imgWrap img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+        .img-sm {
+          max-width: 360px;
+          margin: 0 auto;
+        }
+        /* Resize second image to match first */
+        .img-banner {
+          max-width: 360px; /* was 740px */
+          margin: 12px auto 0;
+        }
+
+        /* Fixed buttons (safe-area aware) — LEFT (kept) */
+        .fab-top-left {
+          position: fixed;
+          top: calc(env(safe-area-inset-top, 0px) + 10px);
+          left: calc(env(safe-area-inset-left, 0px) + 10px);
+          z-index: 60;
+          opacity: 0.96;
+        }
+        .fab-bottom-left {
+          position: fixed;
+          bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+          left: calc(env(safe-area-inset-left, 0px) + 14px);
+          z-index: 60;
+          opacity: 0.98;
+        }
+
+        /* Fixed buttons (safe-area aware) — RIGHT (new) */
+        .fab-top-right {
+          position: fixed;
+          top: calc(env(safe-area-inset-top, 0px) + 10px);
+          right: calc(env(safe-area-inset-right, 0px) + 10px);
+          z-index: 60;
+          opacity: 0.96;
+        }
+        .fab-bottom-right {
+          position: fixed;
+          bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+          right: calc(env(safe-area-inset-right, 0px) + 14px);
+          z-index: 60;
+          opacity: 0.98;
+        }
+
+        /* Prevent any accidental width overflow from cards/images */
+        .card,
+        .imgWrap,
+        .section,
+        .hero {
+          max-width: 100%;
+        }
       `}</style>
-    </div>
+    </>
   );
 }
