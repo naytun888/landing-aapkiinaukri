@@ -1,327 +1,356 @@
 "use client";
 
-import CtaLink from "../components/CtaLink";
+import CtaLink from "@/components/CtaLink";
+
+const DEST = "https://www.hirepr0.com/";
 
 export default function Page() {
   return (
     <>
-      {/* Tricolor line */}
-      <div className="flagbar" aria-hidden="true" />
-
-      {/* Fixed CTA (top-left) */}
-      <CtaLink className="cta fab-top-left" ariaLabel="Get Started">
+      {/* FLOATING CTAs (RIGHT SIDE) */}
+      <a href={DEST} className="floatCta floatTop" aria-label="Get Started">
         Get Started
-      </CtaLink>
+      </a>
+      <a href={DEST} className="floatCta floatBottom" aria-label="Apply Now">
+        Apply Now
+      </a>
 
-      {/* Nav */}
+      {/* TOP STRIPE */}
+      <div className="triStripe" aria-hidden="true" />
+
+      {/* NAV */}
       <header className="container">
-        <nav className="nav" aria-label="Main">
+        <nav className="nav" aria-label="main">
           <div className="brand">
-            Aapki<span style={{ color: "var(--green)" }}>In</span>Naukri
+            Aapki<span className="in">In</span>Naukri
           </div>
-
-          {/* Hide on small screens, show on tablets/desktop */}
           <div className="menu">
             <a href="#how">How it Works</a>
             <a href="#earnings">Earnings</a>
             <a href="#benefits">Benefits</a>
             <a href="#contact">Contact</a>
           </div>
-
-          {/* Desktop-only secondary CTA (mobile uses fab button) */}
-          <div className="menu-cta">
-            <CtaLink className="cta" ariaLabel="Get Started">
-              Get Started
-            </CtaLink>
-          </div>
+          <CtaLink className="cta" href={DEST}>
+            Get Started
+          </CtaLink>
         </nav>
       </header>
 
+      {/* HERO */}
       <main>
-        {/* HERO */}
-        <section className="container hero" id="hero">
-          <div>
-            <div className="pill">
-              Daily Updated — New earning opportunities
-            </div>
-            <h1>
-              Earn Money Online —{" "}
-              <span style={{ color: "var(--green)" }}>No Experience Needed</span>
-            </h1>
-            <p className="sub">
-              Use your smartphone to complete simple tasks. Flexible timing,
-              daily payouts, and start within 24 hours.
-            </p>
+        <section className="container hero" id="top">
+          <div className="pill">Daily Updated — New earning opportunities</div>
+          <h1>
+            Earn Money Online — <span className="accent">No Experience Needed</span>
+          </h1>
+          <p className="lede">
+            Use your smartphone to complete simple tasks. Flexible timing, daily payouts,
+            and start within 24 hours.
+          </p>
 
-            <div className="cta-row">
-              <CtaLink className="cta">Claim Your ₹500 Bonus</CtaLink>
-              <CtaLink className="cta ghost">Apply in 2 Minutes</CtaLink>
-            </div>
-
-            <p className="muted" style={{ marginTop: 10 }}>
-              UPI / Bank transfer • Work 1–4 hrs/day.
-            </p>
+          <div className="ctaRow">
+            <CtaLink href={DEST} className="grad">
+              Claim Your ₹500 Bonus
+            </CtaLink>
+            <CtaLink href={DEST} variant="outline">
+              Apply in 2 Minutes
+            </CtaLink>
           </div>
 
-          {/* HERO images (compact) */}
-          <div className="hero-visual">
-            <div className="card imgWrap img-sm">
-              <img
-                src="https://static.naukimg.com/s/0/0/i/role-collection-ot.png"
-                alt="Job role illustration"
-                loading="eager"
-              />
-            </div>
-          </div>
-        </section>
+          <p className="subtle">
+            UPI / Bank transfer • Work 1–4 hrs/day.
+          </p>
 
-        {/* VALUE + PROOF */}
-        <section id="earnings" className="section" style={{ background: "#fafafa" }}>
-          <div className="container grid-2">
-            <div className="card">
-              <h2 className="title">Real Results, Real People</h2>
-              <p className="muted">
-                People across India use part-time hours to earn extra income.
-                Results vary by time spent and task availability. You’re in
-                control of when and how much you work.
-              </p>
-              <div className="cta-row" style={{ marginTop: 10 }}>
-                <CtaLink className="cta">Start Earning</CtaLink>
-                <CtaLink className="cta ghost">View Openings</CtaLink>
-              </div>
-            </div>
-
-            <div className="card">
-              <h2 className="title">Why Choose Us?</h2>
-              <ul className="muted">
-                <li>Simple tasks — app testing, data entry, short surveys</li>
-                <li>Flexible schedule — mornings, evenings, or weekends</li>
-                <li>Fast payouts — UPI or bank transfer</li>
-                <li>Free to apply — no fees, no hidden charges</li>
-              </ul>
-              <div style={{ marginTop: 12 }}>
-                <CtaLink className="cta">Apply Free</CtaLink>
-              </div>
-            </div>
+          {/* Illustration 1 */}
+          <div className="card imgWrap">
+            <img
+              src="https://static.naukimg.com/s/0/0/i/role-collection-ot.png"
+              alt="People finding roles that fit their interests"
+              loading="eager"
+            />
+            <CtaLink href={DEST} className="grad smallCta">
+              Apply Now
+            </CtaLink>
           </div>
         </section>
 
-        {/* IMAGE #2 ABOVE “WHO IS THIS FOR?” */}
-        <section className="container" aria-hidden="false">
-          <div className="card imgWrap img-banner">
+        {/* Banner Illustration 2 (same sizing as Illustration 1) */}
+        <section className="container">
+          <div className="card imgWrap">
             <img
               src="https://static.naukimg.com/s/0/0/i/Events/eventsSwiperLeft-ot.png"
-              alt="Events and tasks illustration"
+              alt="Opportunities banner"
               loading="lazy"
             />
           </div>
         </section>
 
         {/* WHO IS THIS FOR */}
-        <section className="section" id="benefits">
-          <div className="container">
-            <h2 className="title">Who Is This For?</h2>
-            <div className="grid-3">
-              <div className="card">
-                <h3 style={{ color: "var(--green)" }}>Students</h3>
-                <p className="muted">
-                  Earn between classes with short, phone-friendly tasks.
-                </p>
-              </div>
-              <div className="card">
-                <h3 style={{ color: "var(--saffron)" }}>Homemakers</h3>
-                <p className="muted">
-                  Work a few hours a day while managing your schedule.
-                </p>
-              </div>
-              <div className="card">
-                <h3 style={{ color: "#1565c0" }}>Job Seekers</h3>
-                <p className="muted">
-                  Get extra income while you look for a full-time role.
-                </p>
-              </div>
+        <section className="container" id="who">
+          <h2>Who Is This For?</h2>
+          <div className="grid3">
+            <div className="card">
+              <h3>Students & Freshers</h3>
+              <p>Earn between classes with simple, phone-friendly tasks.</p>
             </div>
-            <div style={{ marginTop: 18 }}>
-              <CtaLink className="cta">Check Your Eligibility</CtaLink>
+            <div className="card">
+              <h3>Part-time Seekers</h3>
+              <p>Pick hours that fit your day — mornings, lunch, or late evening.</p>
+            </div>
+            <div className="card">
+              <h3>Work-from-Home</h3>
+              <p>Daily payouts via UPI/bank. No investment. No fees.</p>
             </div>
           </div>
         </section>
 
         {/* HOW IT WORKS */}
-        <section id="how" className="section" style={{ background: "#fafafa" }}>
-          <div className="container">
-            <h2 className="title">How It Works</h2>
-            <div className="steps">
-              <div className="card step">
-                <div className="badge">1</div>
-                <h3>Apply Free</h3>
-                <p className="muted">2-minute form with basic details. No fees.</p>
-              </div>
-              <div className="card step">
-                <div
-                  className="badge"
-                  style={{
-                    background: "linear-gradient(180deg,var(--green),#0b7f2b)",
-                  }}
-                >
-                  2
-                </div>
-                <h3>Choose Tasks</h3>
-                <p className="muted">Pick tasks that fit your time and interests.</p>
-              </div>
-              <div className="card step">
-                <div
-                  className="badge"
-                  style={{
-                    background: "linear-gradient(180deg,#ff7aa2,#ff5e7a)",
-                  }}
-                >
-                  3
-                </div>
-                <h3>Get Paid</h3>
-                <p className="muted">Receive payouts via UPI or bank transfer.</p>
-              </div>
+        <section className="container" id="how">
+          <h2>How It Works</h2>
+          <ol className="steps">
+            <li className="card">
+              <span className="badge one">1</span>
+              <h3>Apply Free</h3>
+              <p>2-minute form with basic details. No fees.</p>
+            </li>
+            <li className="card">
+              <span className="badge two">2</span>
+              <h3>Choose Tasks</h3>
+              <p>Pick tasks that match your time and interests.</p>
+            </li>
+            <li className="card">
+              <span className="badge three">3</span>
+              <h3>Get Paid</h3>
+              <p>Receive money directly to your bank or UPI.</p>
+            </li>
+          </ol>
+        </section>
+
+        {/* EARNINGS */}
+        <section className="container" id="earnings">
+          <h2>Real Results, Real People</h2>
+          <div className="grid2">
+            <div className="card">
+              <h3>₹8,342</h3>
+              <p>Rohit earned ₹8,342 in 3 weeks. You can too.</p>
+              <CtaLink href={DEST} className="grad smallCta">
+                Start Earning
+              </CtaLink>
             </div>
-            <div style={{ textAlign: "center", marginTop: 16 }}>
-              <CtaLink className="cta">Apply Now</CtaLink>
+            <div className="card">
+              <h3>₹12,210</h3>
+              <p>Priya made ₹12,210 in a month while studying.</p>
+              <CtaLink href={DEST} className="grad smallCta">
+                Apply Now
+              </CtaLink>
             </div>
           </div>
         </section>
 
-        {/* TRUST */}
-        <section className="section" style={{ background: "#fafafa" }}>
-          <div className="container grid-2">
+        {/* BENEFITS */}
+        <section className="container" id="benefits">
+          <h2>Why Choose Us?</h2>
+          <div className="grid3">
             <div className="card">
-              <h2 className="title">Trust & Safety</h2>
-              <ul className="muted">
-                <li>Clear, upfront task instructions</li>
-                <li>No signup fees or deposits</li>
-                <li>Data used only to process your application</li>
-                <li>Support team available for questions</li>
-              </ul>
+              <h3>Simple Tasks</h3>
+              <p>Surveys, app testing, small data jobs — all mobile friendly.</p>
             </div>
             <div className="card">
-              <h2 className="title">Ad-Policy Friendly Content</h2>
-              <p className="muted">
-                We avoid misleading claims or unrealistic promises. Earnings
-                depend on your time, effort, and task availability.
-              </p>
-              <CtaLink className="cta">View Openings</CtaLink>
+              <h3>Flexible Hours</h3>
+              <p>Work 1–4 hours/day — you decide.</p>
+            </div>
+            <div className="card">
+              <h3>Daily Payouts</h3>
+              <p>UPI or bank transfer. No minimum withdrawal.</p>
             </div>
           </div>
         </section>
 
-        {/* CONTACT */}
-        <section id="contact" className="section">
-          <div className="container">
-            <h2 className="title">Ready to Start?</h2>
-            <p className="muted">Tap any button to apply. It takes less than 2 minutes.</p>
-            <div className="cta-row" style={{ marginTop: 10 }}>
-              <CtaLink className="cta">Apply Free</CtaLink>
-              <CtaLink className="cta ghost">Get Help</CtaLink>
-              <CtaLink className="cta">Start Today</CtaLink>
-            </div>
+        {/* POLICY-FRIENDLY NOTE */}
+        <section className="container">
+          <div className="card">
+            <h2>Ad Policy Friendly Content</h2>
+            <p>
+              We avoid misleading claims or unrealistic promises. Earnings depend on your
+              time, effort, and task availability.
+            </p>
+            <CtaLink href={DEST} className="grad">
+              View Openings
+            </CtaLink>
           </div>
         </section>
+
+        {/* CONTACT / FOOTER */}
+        <footer className="container" id="contact">
+          <h2>Ready to Start?</h2>
+          <p>Tap any button to apply. It takes less than 2 minutes.</p>
+          <div className="ctaRow">
+            <CtaLink href={DEST} className="grad">Apply Free</CtaLink>
+            <CtaLink href={DEST} variant="outline">Get Help</CtaLink>
+            <CtaLink href={DEST} className="grad">Start Today</CtaLink>
+          </div>
+
+          <hr />
+          <div className="footlinks">
+            <a href={DEST}>Privacy</a>
+            <a href={DEST}>Terms</a>
+            <a href={DEST}>Contact</a>
+            <a href={DEST}>FAQ</a>
+          </div>
+          <p className="copyright">
+            © {new Date().getFullYear()} AapkiInNaukri. All rights reserved.
+          </p>
+        </footer>
       </main>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container" style={{ textAlign: "center" }}>
-          <div className="footlinks">
-            <CtaLink>Privacy</CtaLink>
-            <CtaLink>Terms</CtaLink>
-            <CtaLink>Contact</CtaLink>
-            <CtaLink>FAQ</CtaLink>
-          </div>
-          <div className="muted" style={{ marginTop: 10 }}>
-            © {new Date().getFullYear()} AapkiInNaukri. All rights reserved.
-          </div>
-        </div>
-      </footer>
-
-      {/* Fixed CTA (bottom-left) */}
-      <CtaLink className="cta fab-bottom-left" ariaLabel="Apply Now">
-        Apply Now
-      </CtaLink>
-
-      {/* Mobile/overflow fixes */}
       <style jsx global>{`
-        html,
+        :root {
+          --green: #129e41;
+          --orange: #f97316;
+          --accent: #0a7f2f;
+          --glass: rgba(255, 255, 255, 0.65);
+          --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+          --radius: 22px;
+          --edge: max(16px, env(safe-area-inset-left));
+        }
+        html, body { overflow-x: hidden; }
         body {
-          overflow-x: hidden;
+          margin: 0;
+          background: #f6f8f9;
+          color: #111827;
+          font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+            Arial, "Apple Color Emoji", "Segoe UI Emoji";
         }
-
-        /* Wider safe padding on phones */
+        .triStripe {
+          height: 6px;
+          background: linear-gradient(90deg, #ff7a00, #2bb24c, #2bb24c 60%, #ff7a00);
+        }
         .container {
-          padding-left: max(16px, env(safe-area-inset-left));
-          padding-right: max(16px, env(safe-area-inset-right));
+          max-width: 1120px;
+          margin: 0 auto;
+          padding: 24px;
+          padding-left: max(20px, env(safe-area-inset-left));
+          padding-right: max(20px, env(safe-area-inset-right));
+        }
+        .nav {
+          display: grid;
+          grid-template-columns: 1fr auto auto;
+          gap: 10px 24px;
+          align-items: center;
+        }
+        .brand {
+          font-weight: 800;
+          font-size: clamp(20px, 3.2vw, 28px);
+          letter-spacing: 0.2px;
+        }
+        .brand .in { color: var(--green); }
+        .menu { display: flex; gap: 18px; flex-wrap: wrap; }
+        .menu a { color: #374151; text-decoration: none; font-weight: 600; }
+        .cta { justify-self: end; }
+
+        .hero h1 {
+          font-size: clamp(28px, 6.2vw, 46px);
+          line-height: 1.1;
+          margin: 14px 0 10px;
+        }
+        .accent { color: var(--green); }
+        .lede { font-size: clamp(16px, 3.6vw, 20px); color: #4b5563; }
+        .pill {
+          display: inline-block;
+          padding: 10px 14px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: var(--shadow);
+          margin-top: 6px;
+        }
+        .ctaRow { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0 8px; }
+
+        .card {
+          background: var(--glass);
+          backdrop-filter: saturate(140%) blur(18px);
+          border-radius: var(--radius);
+          box-shadow: var(--shadow);
+          padding: 20px;
         }
 
-        /* Make hero breathe on mobile */
-        .hero > div:first-child {
-          padding-right: 6px;
+        /* Shared image sizing for both illustrations */
+        .imgWrap {
+          display: grid;
+          gap: 12px;
+          place-items: center;
+          margin: 14px 0;
+          padding: 12px;
         }
-
-        /* Brand bigger on mobile */
-        @media (max-width: 768px) {
-          .brand {
-            font-size: 24px;
-            font-weight: 800;
-          }
-          /* hide menu + right CTA on phones */
-          .menu,
-          .menu-cta {
-            display: none !important;
-          }
-          /* stack hero */
-          .hero {
-            grid-template-columns: 1fr !important;
-          }
-          .cta-row {
-            flex-wrap: wrap;
-            gap: 12px;
-          }
-        }
-
-        /* Responsive images */
         .imgWrap img {
-          display: block;
           width: 100%;
           height: auto;
+          max-width: 420px;   /* phone default */
+          border-radius: 18px;
         }
-        .img-sm {
-          max-width: 360px;
-          margin: 0 auto;
+        @media (min-width: 480px) {
+          .imgWrap img { max-width: 520px; }
         }
-        .img-banner {
-          max-width: 740px;
-          margin: 12px auto 0;
-        }
-
-        /* Fixed buttons (safe-area aware) */
-        .fab-top-left {
-          position: fixed;
-          top: calc(env(safe-area-inset-top, 0px) + 10px);
-          left: calc(env(safe-area-inset-left, 0px) + 10px);
-          z-index: 60;
-          opacity: 0.96;
-        }
-        .fab-bottom-left {
-          position: fixed;
-          bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
-          left: calc(env(safe-area-inset-left, 0px) + 14px);
-          z-index: 60;
-          opacity: 0.98;
+        @media (min-width: 768px) {
+          .imgWrap img { max-width: 640px; }
         }
 
-        /* Prevent any accidental width overflow from cards/images */
-        .card,
-        .imgWrap,
-        .section,
-        .hero {
-          max-width: 100%;
+        h2 {
+          font-size: clamp(22px, 4.6vw, 30px);
+          margin: 14px 0 12px;
         }
+        h3 { margin: 8px 0; }
+
+        .grid3 {
+          display: grid;
+          gap: 14px;
+          grid-template-columns: 1fr;
+        }
+        .grid2 {
+          display: grid;
+          gap: 14px;
+          grid-template-columns: 1fr;
+        }
+        @media (min-width: 768px) {
+          .grid3 { grid-template-columns: repeat(3, 1fr); }
+          .grid2 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .steps {
+          list-style: none; padding: 0; margin: 0; display: grid; gap: 14px;
+        }
+        .badge {
+          display: inline-grid; place-items: center;
+          width: 40px; height: 40px; border-radius: 999px;
+          color: white; font-weight: 700; margin-bottom: 8px;
+        }
+        .one { background: #fb923c; }
+        .two { background: #22c55e; }
+        .three { background: #f472b6; }
+
+        .smallCta { align-self: center; justify-self: center; }
+
+        .subtle { color: #6b7280; margin-top: 6px; }
+
+        .footlinks { display: flex; gap: 16px; flex-wrap: wrap; }
+        .footlinks a { color: #374151; text-decoration: none; }
+        .copyright { color: #6b7280; }
+
+        /* Floating (fixed) glass CTAs on the RIGHT side */
+        .floatCta {
+          position: fixed;
+          right: max(12px, env(safe-area-inset-right));
+          z-index: 60;
+          background: linear-gradient(135deg, #ff9365, #76d18c);
+          color: white;
+          text-decoration: none;
+          font-weight: 800;
+          padding: 10px 14px;
+          border-radius: 999px;
+          box-shadow: var(--shadow);
+          backdrop-filter: blur(16px) saturate(140%);
+        }
+        .floatTop { top: max(12px, calc(env(safe-area-inset-top) + 12px)); }
+        .floatBottom { bottom: max(16px, env(safe-area-inset-bottom)); }
       `}</style>
     </>
   );
